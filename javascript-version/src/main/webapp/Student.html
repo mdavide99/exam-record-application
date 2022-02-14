@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Student</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+	<script src="utils.js" charset="utf-8" defer></script>
+	<script src="studentManager.js" charset="utf-8" defer></script>
+</head>
+
+<body>
+	<div class="container">
+
+		<div class="d-flex flex-row-reverse no-print">
+			<button class="logoutBtn"></button>
+		</div>
+
+		<div id="id_alert" class="alert alert-danger no-print"></div>
+
+		<h1 class="text-center" id="id_title"></h1>
+
+		<div class="row justify-content-center">
+			<div class="col"></div>
+			<div id="id_classContainer" class="col-5"></div>
+			<div class="col"></div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col"></div>
+			<div id="id_resultContainer" class="col-5">
+				<div id="id_resultBody"></div>
+				<div class="no-print">
+					<button id="id_printPage" class="printPage"></button>
+					<button class="backToHomeBtn"></button>
+				</div>
+			</div>
+			<div class="col"></div>
+		</div>
+	</div>
+
+</body>

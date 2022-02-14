@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Teacher</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <script src="utils.js" charset="utf-8" defer></script>
+  <script src="teacherManager.js" charset="utf-8" defer></script>
+  <script src="sort.js" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="d-flex flex-row-reverse no-print">
+      <button class="logoutBtn"></button>
+    </div>
+
+    <div id="id_alert" class="alert alert-danger no-print"></div>
+
+    <h1 class="text-center" id="id_title"></h1>
+
+    <div class="row justify-content-center">
+      <div class="col"></div>
+      <div id="id_classContainer" class="col-5"></div>
+      <div class="col"></div>
+    </div>
+
+    <div id="id_subscriberContainer" class="row justify-content-center">
+      <div class="col">
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="sortable"><a>Matricola</a></th>
+              <th class="sortable"><a>Cognome e Nome</a></th>
+              <th class="sortable"><a>Email</a></th>
+              <th class="sortable"><a>Corso di laurea</a></th>
+              <th class="sortable_custom"><a>Voto</a></th>
+              <th class="sortable"><a>Stato di valutazione</a></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="id_iscrittiBody"></tbody>
+        </table>
+        <div class="no-print">
+          <form id="id_resultActionForm" action="#">
+            <input type="hidden" id="examSessionID" name="examSessionID" />
+            <input type="button" value="INSERIMENTO MULTIPLO" class="btn btn-outline-dark m-2" />
+            <input type="button" value="Pubblica" class="btn btn-outline-primary m-2" />
+            <input type="button" value="Verbalizza" class="btn btn-outline-success m-2" />
+          </form>
+          <button class="backToHomeBtn"></button>
+          <button class="printPage"></button>
+        </div>
+      </div>
+    </div>
+
+    <div id="id_modifyResultModalContainer" class="modalWindow">
+      <div class="modalContent">
+        <span id="id_closeResult" class="close">&times;</span>
+        <h4>Assegna Valutazione</h4>
+        <form id="id_drawResultForm" action="#">
+          <input type="hidden" name="setResultSessionID" />
+          <input type="hidden" name="setResultStudentID" />
+          <fieldset id="id_contentSet"></fieldset>
+          <label for="id_result">Valutazione:</label><br />
+          <select name="result" id="id_result">
+            <option value="Assente">Assente</option>
+            <option value="Rimandato">Rimandato</option>
+            <option value="Riprovato">Riprovato</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+            <option value="30 e Lode">30 e Lode</option>
+          </select><br />
+          <input type="button" value="Registra Valutazione" class="btn btn-success m-2" />
+        </form>
+      </div>
+    </div>
+
+    <div id="id_bulkModifyResultModalContainer" class="modalWindow">
+      <div class="modalContent">
+        <span id="id_closeBulkModifyResult">&times;</span>
+        <h4>Assegna Valutazione a più studenti</h4>
+        <form id="id_bulkModifyResultForm" action="#">
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="sortable"><a>Matricola</a></th>
+                <th class="sortable"><a>Cognome e Nome</a></th>
+                <th><a>Voto</a></th>
+              </tr>
+            </thead>
+            <tbody id="id_bulkModifyResultTbody">
+              <tr>
+                <td id="id_genericSelectResult">
+                  <select name="result">
+                    <option value="Assente">Assente</option>
+                    <option value="Rimandato">Rimandato</option>
+                    <option value="Riprovato">Riprovato</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="30 e Lode">30 e Lode</option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <input type="button" value="INVIA" class="btn btn-success m-2" />
+        </form>
+      </div>
+    </div>
+
+    <div id="id_reportContainer">
+      <p id="id_reportInfo"></p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="sortable">Nome</th>
+            <th class="sortable">Cognome</th>
+            <th class="sortable">Matricola</th>
+            <th class="sortable_custom">Voto</th>
+          </tr>
+        </thead>
+        <tbody id="id_reportTbody"></tbody>
+      </table>
+      <div class="no-print">
+        <button class="printPage"></button>
+        <button class="backToHomeBtn"></button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

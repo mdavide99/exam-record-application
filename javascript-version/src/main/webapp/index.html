@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+	<script src="utils.js" charset="utf-8" defer></script>
+	<script src="loginManagement.js" charset="utf-8" defer></script>
+
+</head>
+
+<body>
+	<div class="container pt-5">
+		<h3 class="text-center">Entra nel portale Valutazioni</h3>
+		<div class="d-flex justify-content-center">
+
+			<form action="#">
+			<fieldset>
+					<label for="id_mailInput">Mail</label>
+					<input type="email" name="mail" class="form-control" id="id_mailInput" required>
+					
+					<label for="id_passwordInput">Password</label>
+					<input type="password" name="password" class="form-control" id="id_passwordInput" required>
+
+					<input id="loginbutton" type="button" value="Login" class="btn btn-success mt-3">
+
+					<p id="errormessage"></p>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>
