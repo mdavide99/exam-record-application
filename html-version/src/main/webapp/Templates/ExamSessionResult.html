@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Assegna Valutazione</title>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css"
+	th:href="@{/css/bootstrap.css}" />
+</head>
+<body>
+	<div class="container">
+		<div class="d-flex flex-row-reverse">
+				<span class="btn btn-danger m-2"><a th:href="@{'/LogoutAction'}" class="text-white">Logout</a></span>
+		</div>
+		<h1 class="text-center">Assegna Valutazione</h1>
+		<div class="row justify-content-center text-center">
+			<div class="col-5">
+				<form th:action="@{'/ExamSessionResult'}" method="post">
+					<label th:text="'Cognome: '+${student.surname}">Cognome:
+						Lorem</label><br> <label th:text="'Nome: '+${student.name}">Nome:
+						Ipsum</label><br> <label
+						th:text="'Matricola: '+${student.serialNumber}">Matricola:
+						000</label><br> <label th:text="'Corso: '+${student.degreeCourse}">Corso:
+						Latin</label><br> <label for="result">Valutazione:</label><br> <input
+						type="hidden" id="examSessionID" name="examSessionID"
+						th:value="${examSessionId}"> <input type="hidden"
+						id="studentId" name="studentId" th:value="${student.serialNumber}">
+
+
+					<select name="result" id="result" class="p-1 m-2">
+						<option value="Assente">Assente</option>
+						<option value="Rimandato">Rimandato</option>
+						<option value="Riprovato">Riprovato</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+						<option value="21">21</option>
+						<option value="22">22</option>
+						<option value="23">23</option>
+						<option value="24">24</option>
+						<option value="25">25</option>
+						<option value="26">26</option>
+						<option value="27">27</option>
+						<option value="28">28</option>
+						<option value="29">29</option>
+						<option value="30">30</option>
+						<option value="30 e Lode">30 e Lode</option>
+					</select><br> 
+					<input type="submit" value="Registra Valutazione" class="btn btn-primary">
+				</form>
+				<a
+					th:href="@{'/Iscritti?examSessionID='+ ${examSessionId} +'&tableOrder=SerialNumber&ascending=true'}">
+					Ritorna alla pagina degli iscritti </a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

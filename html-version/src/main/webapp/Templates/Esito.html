@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Esito</title>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css"
+	th:href="@{/css/bootstrap.css}" />
+</head>
+<body>
+	<div class="container">
+		<div class="d-flex flex-row-reverse">
+				<span class="btn btn-danger m-2"><a th:href="@{'/LogoutAction'}" class="text-white">Logout</a></span>
+		</div>
+		<h1 class="text-center">Esito</h1>
+		<div th:switch="${state}">
+
+			<div th:case="'non inserito'">
+				<p class="text-center">Voto non ancora definito</p>
+			</div>
+
+			<div th:case="'inserito'">
+				<p class="text-center">Voto non ancora definito</p>
+			</div>
+
+			<div th:case="'pubblicato'"
+				class="row justify-content-center text-center">
+				<div class="col-5">
+					<h2>Studente</h2>
+					<span th:text="'Matricola: '+${student.serialNumber}">
+						Matricola </span><br> <span
+						th:text="'Cognome e Nome: '+${student.surname + ' ' + student.name}">
+						Cognome e Nome </span><br> <span th:text="'Email: '+${student.mail}">
+						Email </span><br> <span
+						th:text="'Corso di laurea: '+${student.degreeCourse}">
+						Corso di laurea </span><br> <span
+						th:text="'Valutazione: '+${result}"> Voto </span><br>
+
+					<form th:if="${resultRefusable}" th:action="@{'/Esito'}"
+						method="post">
+						<input type="hidden" id="examSessionID" name="examSessionID"
+							th:value="${examSession.sessionId}"> <input type="hidden"
+							id="refuse" name="refuse" value="true"> <input
+							type="submit" value="Rifiuta Valutazione" class="btn btn-danger">
+					</form>
+
+				</div>
+			</div>
+
+			<div th:case="'rifiutato'"
+				class="row justify-content-center text-center">
+				<div class="col-5">
+					<h2>Studente</h2>
+					<span th:text="'Matricola: '+${student.serialNumber}">
+						Matricola </span><br> <span
+						th:text="'Cognome e Nome: '+${student.surname + ' ' + student.name}">
+						Cognome e Nome </span><br> <span th:text="'Email: '+${student.mail}">
+						Email </span><br> <span
+						th:text="'Corso di laurea: '+${student.degreeCourse}">
+						Corso di laurea </span><br> <span
+						th:text="'Valutazione: '+${result}"> Voto </span><br>
+
+					<h1 class="text-danger">Valutazione Rifiutata</h1>
+				</div>
+			</div>
+
+			<div th:case="'verbalizzato'"
+				class="row justify-content-center text-center">
+				<div class="col-5">
+					<h2>Studente</h2>
+					<span th:text="'Matricola: '+${student.serialNumber}">
+						Matricola </span><br> <span
+						th:text="'Cognome e Nome: '+${student.surname + ' ' + student.name}">
+						Cognome e Nome </span><br> <span th:text="'Email: '+${student.mail}">
+						Email </span><br> <span
+						th:text="'Corso di laurea: '+${student.degreeCourse}">
+						Corso di laurea </span><br> <span
+						th:text="'Valutazione: '+${result}"> Voto </span><br>
+
+					<h1 class="text-info">Valutazione Verbalizata</h1>
+				</div>
+			</div>
+
+		</div>
+		<div class="row justify-content-center text-center">
+			<div class="col-5">
+				<a th:href="@{'/HomeStudent'}" href="#"> Ritorna alla home </a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
